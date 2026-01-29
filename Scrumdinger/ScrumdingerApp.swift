@@ -10,11 +10,9 @@ import ThemeKit
 
 @main
 struct ScrumdingerApp: App {
-	let theme: Theme = Theme.sky
     var body: some Scene {
 		WindowGroup {
-			MeetingView()
-				.background(theme.mainColor)
+			ScrumsView(scrums: DailyScrum.sampleData)
 		}
     }
 }
