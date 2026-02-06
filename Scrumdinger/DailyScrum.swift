@@ -10,9 +10,17 @@ import ThemeKit
 
 struct DailyScrum: Identifiable {
 	let id: UUID
-	let title: String
-	let attendees: [Attendee]
-	let lengthInminutes: Int
+	var title: String
+	var attendees: [Attendee]
+	var lengthInminutes: Int
+	var lengthInminutesDouble: Double {
+		get {
+			Double(lengthInminutes)
+		}
+		set {
+			lengthInminutes = Int(newValue)
+		}
+	}
 	let theme: Theme
 
 	init(id: UUID = UUID(), title: String, attendees: [String], lengthInminutes: Int, theme: Theme) {
@@ -32,4 +40,6 @@ struct DailyScrum: Identifiable {
 			self.name = name
 		}
 	}
+
+	static var emptyScrum = DailyScrum(title: "", attendees: [], lengthInminutes: 5, theme: .sky)
 }
